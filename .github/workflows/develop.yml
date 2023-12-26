@@ -22,6 +22,16 @@ jobs:
     environment: production
 
     steps:
+    - name: Send custom JSON data to Slack workflow
+      id: pre_slack
+      uses: slackapi/slack-github-action@v1.16.0
+      with:
+        payload: '{"text": "Build *verse-proxy* in development STARTED"}'
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+    steps:
     - name: Checkout
       uses: actions/checkout@v2
 
@@ -56,4 +66,13 @@ jobs:
     - name: Wait
       run: |
         aws ecs wait services-stable --cluster ${{ env.ECS_CLUSTER }} --service ${{ env.ECS_SERVICE }}
+
+    - name: Send custom JSON data to Slack workflow
+      id: post_slack
+      uses: slackapi/slack-github-action@v1.16.0
+      with:
+        payload: '{"text": "Build *verse-proxy* in development SUCCEED"}'
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
     
