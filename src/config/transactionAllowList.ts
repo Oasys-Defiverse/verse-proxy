@@ -95,6 +95,15 @@ export const getDeployAllowList = (): Array<string> => {
 
     '0x57d4ec34af884969f5d12b443e2d3531cd8dcd77',
     '0x15c33d29f2a5fe2541ecbbb87f639fd1dbeaa334',
+
+    '0x565b2bec446A5aEeA0D58ABe02817C4A29BD6b83',
+    '0x565b2bec446a5aeea0d58abe02817c4a29bd6b83',
+
+    '0xF5c0d2422B9C0F3d64a03f6E1f757562eAcE9185',
+    '0xf5c0d2422b9c0f3d64a03f6e1f757562eace9185',
+
+    '0xfe5Cf7Ed0AF4898EAbc08872592633359B105325',
+    '0xfe5cf7ed0af4898eabc08872592633359b105325',
   ];
 };
 
